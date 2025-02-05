@@ -1,0 +1,80 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "todoApp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.127.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "todoApp.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "type": "View",
+        "path": "todoApp.view",
+        "controlAggregation": "pages",
+        "controlId": "idApp"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "overview",
+          "target": ["overviewPage"]
+        }
+      ],
+      "targets": {
+        "overviewPage": {
+          "id": "overviewPage",
+          "name": "Overview"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "todoApp.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

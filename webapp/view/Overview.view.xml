@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="todoApp.controller.Overview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true"
+>
+    <Page
+        id="idOverviewPage"
+        title="Home Page"
+    >
+        <Text text="The Overview page" />
+    </Page>
+</mvc:View>
