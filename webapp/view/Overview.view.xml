@@ -5,65 +5,116 @@
     xmlns:core="sap.ui.core"
     displayBlock="true"
 >
-    <Panel id="idtodoPanel">
-        <FlexBox
-            id="idTodoInputFlexBox"
-            direction="Column"
-            alignItems="Center"
-        >
-            <Title
-                id="idGenTitle"
-                text="{i18n>todoInputLabel}"
-            />
-            <Input
-                id="idtodoInput"
-                placeholder="{i18n>todoInputPlaceholder}"
-                submit=".onInputSubmit"
-            />
-        </FlexBox>
-    </Panel>
-    <Panel id="idTodoListPanel">
-        <List
-            id="idTodosList"
-            items="{todos>/todos}"
-        >
-            <CustomListItem id="idCustomListItem">
+    <Page
+        id="idTodoAppPage"
+        showHeader="false"
+    >
+        <content>
+            <Panel id="idtodoPanel">
                 <FlexBox
-                    id="idTodoItemFlexBox"
-                    direction="Row"
+                    id="idTodoInputFlexBox"
+                    direction="Column"
                     alignItems="Center"
-                    justifyContent="SpaceBetween"
                 >
-                    <HBox id="idtodoItemHBox">
-                        <FlexBox
-                            id="idTodoItemWrapperFlexBox"
-                            alignItems="Center"
-                        >
-                            <CheckBox
-                                id="idTodoItemCheckBox"
-                                selected="{todos>completed}"
-                            />
-                            <Text
-                                id="idTodoItemText"
-                                text="{todos>todo}"
-                            >
-                                <customData>
-                                    <core:CustomData
-                                        key="todo-item-completed"
-                                        value="{=String(${todos>completed})}"
-                                        writeToDom="true"
-                                    />
-                                </customData>
-                            </Text>
-                        </FlexBox>
-                    </HBox>
-                    <Button
-                        id="idTodoItemDeleteButton"
-                        icon="sap-icon://delete"
-                        press=".onButtonDeletePress(${todos>id})"
+                    <Title
+                        id="idGenTitle"
+                        level="H1"
+                        text="{i18n>todoInputLabel}"
+                    />
+                    <Input
+                        id="idtodoInput"
+                        placeholder="{i18n>todoInputPlaceholder}"
+                        submit=".onInputSubmit"
+                        width="30rem"
                     />
                 </FlexBox>
-            </CustomListItem>
-        </List>
-    </Panel>
+            </Panel>
+            <Panel id="idTodoListPanel">
+                <List
+                    id="idTodosList"
+                    items="{todos>/todos}"
+                >
+                    <headerToolbar>
+                        <OverflowToolbar id="idOverflowToolbar">
+                            <ToolbarSpacer id="idToolbarSpacer" />
+                            <SearchField
+                                id="idSearchField"
+                                width="20rem"
+                                liveChange=".onSearchFieldLiveChange"
+                            />
+                            <SegmentedButton
+                                id="idSegmentedButton"
+                                class="sapMSegmentedButtonNoAutoWidth"
+                                selectedKey="all"
+                                selectionChange=".onSegmentedButtonSelectionChange"
+                            >
+                                <items>
+                                    <SegmentedButtonItem
+                                        id="idAllSegmentedButtonItem"
+                                        text="{i18n>labelAll}"
+                                        key="all"
+                                    />
+                                    <SegmentedButtonItem
+                                        id="idActiveSegmentedButtonItem"
+                                        text="{i18n>labelActive}"
+                                        key="active"
+                                    />
+
+                                    <SegmentedButtonItem
+                                        id="idCompletedSegmentedButtonItem"
+                                        text="{i18n>labelCompleted}"
+                                        key="completed"
+                                    />
+                                </items>
+                            </SegmentedButton>
+                            <Button
+                                id="idClearCompletedButton"
+                                enabled="{/itemsRemovable}"
+                                icon="sap-icon://delete"
+                                text="{i18n>clearCompletedItemsButtonLabel}"
+                                press=".onButtonClearCompletedPress"
+                            />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <CustomListItem id="idCustomListItem">
+                        <FlexBox
+                            id="idTodoItemFlexBox"
+                            direction="Row"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween"
+                        >
+                            <HBox id="idtodoItemHBox">
+                                <FlexBox
+                                    id="idTodoItemWrapperFlexBox"
+                                    alignItems="Center"
+                                >
+                                    <CheckBox
+                                        id="idTodoItemCheckBox"
+                                        selected="{todos>completed}"
+                                    />
+                                    <Text
+                                        id="idTodoItemText"
+                                        text="{todos>todo}"
+                                    >
+                                        <customData>
+                                            <core:CustomData
+                                                key="todo-item-completed"
+                                                value="{=String(${todos>completed})}"
+                                                writeToDom="true"
+                                            />
+                                        </customData>
+                                    </Text>
+                                </FlexBox>
+                            </HBox>
+                            <Button
+                                id="idTodoItemDeleteButton"
+                                icon="sap-icon://delete"
+                                press=".onButtonDeletePress(${todos>id})"
+                            />
+                        </FlexBox>
+                    </CustomListItem>
+                </List>
+            </Panel>
+        </content>
+    </Page>
 </mvc:View>
