@@ -36,8 +36,14 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "todoApp.i18n.i18n"
+          "bundleName": "todoApp.i18n.i18n",
+          "supportedLocales": ["de", "en"],
+          "fallbackLocale": "de"
         }
+      },
+      "todos": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/todos.json"
       }
     },
     "resources": {

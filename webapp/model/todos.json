@@ -1,0 +1,9 @@
+{
+  "todos": [
+    { "id": 1, "todo": "Buy groceries", "completed": false, "userId": 1 },
+    { "id": 2, "todo": "Walk the dog", "completed": true, "userId": 1 },
+    { "id": 3, "todo": "Read a book", "completed": false, "userId": 2 },
+    { "id": 4, "todo": "Write a blog post", "completed": true, "userId": 2 },
+    { "id": 5, "todo": "Exercise", "completed": false, "userId": 3 }
+  ]
+}

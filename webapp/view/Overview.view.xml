@@ -4,10 +4,58 @@
     xmlns="sap.m"
     displayBlock="true"
 >
-    <Page
-        id="idOverviewPage"
-        title="Home Page"
-    >
-        <Text text="The Overview page" />
-    </Page>
+    <Panel id="idtodoPanel">
+        <FlexBox
+            id="idTodoInputFlexBox"
+            direction="Column"
+            alignItems="Center"
+        >
+            <Title
+                id="idGenTitle"
+                text="{i18n>todoInputLabel}"
+            />
+            <Input
+                id="idtodoInput"
+                placeholder="{i18n>todoInputPlaceholder}"
+                submit=".onInputSubmit"
+            />
+        </FlexBox>
+    </Panel>
+    <Panel id="idTodoListPanel">
+        <List
+            id="idTodosList"
+            items="{todos>/todos}"
+        >
+            <CustomListItem id="idCustomListItem">
+                <FlexBox
+                    id="todoItemWrapper"
+                    direction="Row"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween"
+                >
+                    <HBox id="idtodoItemHBox">
+                        <FlexBox
+                            id="idTodoItemWrapperFlexBox"
+                            alignItems="Center"
+                        >
+                            <CheckBox
+                                id="idTodoItemCheckBox"
+                                selected="{todos>completed}"
+                                select=".onTodoItemSelect"
+                            />
+                            <Text
+                                id="idTodoItemText"
+                                text="{todos>todo}"
+                            />
+                        </FlexBox>
+                    </HBox>
+                    <Button
+                        id="idTodoItemDeleteButton"
+                        icon="sap-icon://delete"
+                        press=".onTodoItemDelete"
+                    />
+                </FlexBox>
+            </CustomListItem>
+        </List>
+    </Panel>
 </mvc:View>
