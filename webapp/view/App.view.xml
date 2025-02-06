@@ -31,18 +31,21 @@
                             text="{i18n>HOME_SIDE_NAV_ITEM}"
                             icon="sap-icon://home"
                             key="home"
+                            href="#/"
                         />
                         <tnt:NavigationListItem
                             id="idAboutAppNavigationListItem"
                             text="{i18n>TODO_APP_SIDE_NAV_ITEM}"
                             icon="sap-icon://activities"
-                            key="todoApp"
+                            key="todos"
+                            href="#/todos"
                         />
                         <tnt:NavigationListItem
                             id="idProductAppNavigationListItem"
                             text="{i18n>PRODUCTS_SIDE_NAV_ITEM}"
                             icon="sap-icon://product"
-                            key="todoApp"
+                            key="products"
+                            href="#/products"
                         />
                     </tnt:items>
                 </tnt:NavigationList>

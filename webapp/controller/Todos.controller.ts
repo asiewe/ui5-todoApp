@@ -12,7 +12,7 @@ import SegmentedButton from "sap/m/SegmentedButton";
 /**
  * @namespace todoApp.controller
  */
-export default class Overview extends BaseController {
+export default class Todos extends BaseController {
   /**
    * add a new todo item to the list
    * @param event

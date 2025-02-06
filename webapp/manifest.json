@@ -71,6 +71,11 @@
           "pattern": "",
           "name": "home",
           "target": ["homePage"]
+        },
+        {
+          "pattern": "todos",
+          "name": "todos",
+          "target": ["todosPage"]
         }
       ],
       "targets": {
@@ -78,9 +83,9 @@
           "id": "homePage",
           "name": "Home"
         },
-        "overviewPage": {
-          "id": "overviewPage",
-          "name": "Overview"
+        "todosPage": {
+          "id": "todosPage",
+          "name": "Todos"
         }
       }
     },

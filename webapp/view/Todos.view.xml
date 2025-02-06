@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="todoApp.controller.Overview"
+    controllerName="todoApp.controller.Todos"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
