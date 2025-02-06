@@ -33,6 +33,10 @@
       "cozy": true
     },
     "models": {
+      "appState": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/appState.json"
+      },
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -65,11 +69,15 @@
       "routes": [
         {
           "pattern": "",
-          "name": "overview",
-          "target": ["overviewPage"]
+          "name": "home",
+          "target": ["homePage"]
         }
       ],
       "targets": {
+        "homePage": {
+          "id": "homePage",
+          "name": "Home"
+        },
         "overviewPage": {
           "id": "overviewPage",
           "name": "Overview"

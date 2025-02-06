@@ -1,10 +1,55 @@
 <mvc:View
+    xmlns:tnt="sap.tnt"
     controllerName="todoApp.controller.App"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
 >
-    <Shell id="idShell">
-        <App id="idApp" />
-    </Shell>
+    <tnt:ToolPage id="idAppToolPage">
+        <tnt:header>
+            <tnt:ToolHeader id="idAppToolHeader">
+                <Button
+                    id="idNavBartoggleButton"
+                    icon="sap-icon://menu2"
+                    press=".onNavBartoggleButtonPress"
+                />
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                id="idAppSideNavigation"
+                ariaLabel="side vagigation"
+                selectedKey="home"
+            >
+                <tnt:NavigationList
+                    id="idAppNavigationList"
+                    selectedKey="home"
+                >
+                    <tnt:items>
+                        <tnt:NavigationListItem
+                            id="idHomeNavigationListItem"
+                            text="{i18n>HOME_SIDE_NAV_ITEM}"
+                            icon="sap-icon://home"
+                            key="home"
+                        />
+                        <tnt:NavigationListItem
+                            id="idAboutAppNavigationListItem"
+                            text="{i18n>TODO_APP_SIDE_NAV_ITEM}"
+                            icon="sap-icon://activities"
+                            key="todoApp"
+                        />
+                        <tnt:NavigationListItem
+                            id="idProductAppNavigationListItem"
+                            text="{i18n>PRODUCTS_SIDE_NAV_ITEM}"
+                            icon="sap-icon://product"
+                            key="todoApp"
+                        />
+                    </tnt:items>
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App id="idApp" />
+        </tnt:mainContents>
+    </tnt:ToolPage>
 </mvc:View>

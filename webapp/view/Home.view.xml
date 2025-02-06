@@ -1,0 +1,32 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="idHomePage"
+        showHeader="false"
+    >
+        <FlexBox
+            id="idHomePageMainFlexBox"
+            justifyContent="Center"
+            alignItems="Center"
+            direction="Column"
+            height="100%"
+        >
+            <Title
+                id="idHomeMainTitle"
+                level="H1"
+                text="{i18n>HOMEPAGE_MAIN_TEXT}"
+            />
+            <FlexBox id="idButtonFlexBox">
+                <Button
+                    id="idViewOnGithubButton"
+                    icon="sap-icon://chain-link"
+                    text="{i18n>VIEW_ON_GITHUB}"
+                    press="sap.m.URLHelper.redirect(${appState>/githubUrl}, true)"
+                />
+            </FlexBox>
+        </FlexBox>
+    </Page>
+</mvc:View>
