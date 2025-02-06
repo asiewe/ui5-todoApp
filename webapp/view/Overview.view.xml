@@ -2,6 +2,7 @@
     controllerName="todoApp.controller.Overview"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     displayBlock="true"
 >
     <Panel id="idtodoPanel">
@@ -28,7 +29,7 @@
         >
             <CustomListItem id="idCustomListItem">
                 <FlexBox
-                    id="todoItemWrapper"
+                    id="idTodoItemFlexBox"
                     direction="Row"
                     alignItems="Center"
                     justifyContent="SpaceBetween"
@@ -41,18 +42,25 @@
                             <CheckBox
                                 id="idTodoItemCheckBox"
                                 selected="{todos>completed}"
-                                select=".onTodoItemSelect"
                             />
                             <Text
                                 id="idTodoItemText"
                                 text="{todos>todo}"
-                            />
+                            >
+                                <customData>
+                                    <core:CustomData
+                                        key="todo-item-completed"
+                                        value="{=String(${todos>completed})}"
+                                        writeToDom="true"
+                                    />
+                                </customData>
+                            </Text>
                         </FlexBox>
                     </HBox>
                     <Button
                         id="idTodoItemDeleteButton"
                         icon="sap-icon://delete"
-                        press=".onTodoItemDelete"
+                        press=".onButtonDeletePress(${todos>id})"
                     />
                 </FlexBox>
             </CustomListItem>
