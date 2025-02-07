@@ -2,6 +2,7 @@
     xmlns:tnt="sap.tnt"
     controllerName="todoApp.controller.App"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
     displayBlock="true"
     xmlns="sap.m"
 >
@@ -11,8 +12,29 @@
                 <Button
                     id="idNavBartoggleButton"
                     icon="sap-icon://menu2"
-                    press=".onNavBartoggleButtonPress"
+                    press=".onButtonNavBartogglePress"
                 />
+                <ToolbarSpacer id="idAppToolHeaderToolbarSpacer" />
+                <Button
+                    id="idLoginButton"
+                    icon="sap-icon://visits"
+                    text="{i18n>LOGIN_BUTTON_TEXT}"
+                    visible="{= !${appState>/user}}"
+                    press=".onButtonShowLoginDialogPress"
+                />
+                <Button
+                    id="idUserButton"
+                    icon="sap-icon://account"
+                    visible="{= !!${appState>/user}}"
+                    press=".onButtonUserPress"
+                >
+                    <dependents>
+                        <core:Fragment
+                            fragmentName="todoApp.view.UserActionsSheet"
+                            type="XML"
+                        />
+                    </dependents>
+                </Button>
             </tnt:ToolHeader>
         </tnt:header>
         <tnt:sideContent>

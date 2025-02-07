@@ -1,0 +1,17 @@
+<ActionSheet
+    id="idUserActionSheet"
+    xmlns="sap.m"
+    showCancelButton="false"
+>
+    <Button
+        id="idUserSettingsButton"
+        icon="sap-icon://key-user-settings"
+        text="User Settings"
+    />
+    <Button
+        id="idLogoutButton"
+        text="Logout"
+        icon="sap-icon://log"
+        press=".onLogoutButtonPress"
+    />
+</ActionSheet>

@@ -1,3 +1,5 @@
 {
-  "githubUrl": "https://github.com/asiewe/ui5-todoApp"
+  "githubUrl": "https://github.com/asiewe/ui5-todoApp",
+  "backendUrl": "https://dummyjson.com",
+  "user": null
 }
